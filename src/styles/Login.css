@@ -1,0 +1,15 @@
+@media all and (min-width: 480px) {
+  .Login {
+    padding: 60px 0;
+  }
+
+  .Login form {
+    margin: 0 auto;
+    min-width: 320px;
+    text-align: left;
+  }
+
+  .Login-stats {
+    margin: 5%;
+  }
+}
