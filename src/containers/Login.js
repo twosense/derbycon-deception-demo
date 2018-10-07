@@ -10,9 +10,10 @@ export default class Login extends Component {
     super(props);
 
     this.state = {
-      email: "dawud@twosense.ai",
+      email: "derbydemo@twosense.ai",
       password: "",
       passwordIsCorrect: true,
+      emailIsCorrect: true,
       runningDistance: 0
     };
 
@@ -32,9 +33,9 @@ export default class Login extends Component {
   handleSubmit = event => {
     event.preventDefault();
     let result = logKeystrokeEvents(false);
-    let correct = this.state.password === 'TheP@sswordIsYou1'
-
-    if (!correct) {
+    let pwdCorrect = this.state.password === 'TheP@sswordIsYou1';
+    let emailCorrect = this.state.email === 'derbydemo@twosense.ai';
+    if (!pwdCorrect || !emailCorrect) {
       logKeystrokeEvents(true);
     } else {
       if (result != null) {
@@ -46,7 +47,8 @@ export default class Login extends Component {
       }
     }
     this.setState({
-      passwordIsCorrect: correct
+      passwordIsCorrect: pwdCorrect,
+      emailIsCorrect: emailCorrect
     });
   }
 
@@ -64,6 +66,7 @@ export default class Login extends Component {
               onChange={this.handleChange}
             />
           </FormGroup>
+          {!this.state.emailIsCorrect ? <h4 style={{color: 'red'}}>Incorrect Email!</h4> : null }
           <FormGroup id="password-field" controlId="password" bsSize="large">
             <ControlLabel>Password</ControlLabel>
             <FormControl

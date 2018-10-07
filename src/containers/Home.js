@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import '../styles/Home.css';
-import logo from '../vectors/mapbox-astronaut.svg';
 
 export default class Home extends Component {
   render() {
